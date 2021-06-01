@@ -121,6 +121,7 @@ class Dataset(KeyObject):
 
         raw_ann_names = set(os.path.basename(path) for path in raw_ann_paths)
         img_names = [os.path.basename(path) for path in img_paths]
+        img_names = sorted(img_names)
 
         if len(img_names) == 0 or len(raw_ann_names) == 0:
             raise RuntimeError('Dataset {!r} is empty'.format(self.name))
@@ -448,7 +449,7 @@ class Project:
         meta_json = load_json_file(self._get_project_meta_path())
         self._meta = ProjectMeta.from_json(meta_json)
 
-        possible_datasets = get_subdirs(self.directory)
+        possible_datasets = sorted(get_subdirs(self.directory))
         for ds_name in possible_datasets:
             current_dataset = self.dataset_class(os.path.join(self.directory, ds_name), OpenMode.READ)
             self._datasets = self._datasets.add(current_dataset)
