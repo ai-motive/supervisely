@@ -175,7 +175,7 @@ class Annotation:
         '''
         with open(path) as fin:
             data = json.load(fin)
-        return cls.from_json(data, project_meta)
+        return cls.from_json(data, project_meta), data
 
     def clone(self, img_size=None, labels=None, img_tags=None, img_description=None,
               pixelwise_scores_labels=None, custom_data=None):
