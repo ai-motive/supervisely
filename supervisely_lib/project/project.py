@@ -57,8 +57,8 @@ class Dataset(KeyObject):
         self._directory = directory
         self._item_to_ann = {} # item file name -> annotation file name
 
-        if directory not in block_directories:
-            project_dir, ds_name = os.path.split(directory.rstrip('/'))
+        project_dir, ds_name = os.path.split(directory.rstrip('/'))
+        if ds_name not in block_directories:
             self._project_dir = project_dir
             self._name = ds_name
 
