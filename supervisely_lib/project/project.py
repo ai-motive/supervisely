@@ -398,6 +398,7 @@ class Project:
         if type(mode) is not OpenMode:
             raise TypeError("Argument \'mode\' has type {!r}. Correct type is OpenMode".format(type(mode)))
 
+        self.block_directories = block_directories
         parent_dir, name = Project._parse_path(directory)
         self._parent_dir = parent_dir
         self._name = name
@@ -452,7 +453,7 @@ class Project:
 
         possible_datasets = sorted(get_subdirs(self.directory))
         for ds_name in possible_datasets:
-            current_dataset = self.dataset_class(os.path.join(self.directory, ds_name), OpenMode.READ)
+            current_dataset = self.dataset_class(os.path.join(self.directory, ds_name), OpenMode.READ, self.block_directories)
             self._datasets = self._datasets.add(current_dataset)
 
         if self.total_items == 0:
