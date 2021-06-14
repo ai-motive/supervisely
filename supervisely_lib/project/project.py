@@ -46,7 +46,7 @@ class Dataset(KeyObject):
     item_dir_name = 'img'
     annotation_class = Annotation
 
-    def __init__(self, directory: str, mode: OpenMode):
+    def __init__(self, directory: str, mode: OpenMode, block_directories: list):
         '''
         :param directory: path to the directory where the data set will be saved or where it will be loaded from
         :param mode: OpenMode class object which determines in what mode to work with the dataset
@@ -57,14 +57,15 @@ class Dataset(KeyObject):
         self._directory = directory
         self._item_to_ann = {} # item file name -> annotation file name
 
-        project_dir, ds_name = os.path.split(directory.rstrip('/'))
-        self._project_dir = project_dir
-        self._name = ds_name
+        if directory not in block_directories:
+            project_dir, ds_name = os.path.split(directory.rstrip('/'))
+            self._project_dir = project_dir
+            self._name = ds_name
 
-        if mode is OpenMode.READ:
-            self._read()
-        else:
-            self._create()
+            if mode is OpenMode.READ:
+                self._read()
+            else:
+                self._create()
 
     @property
     def name(self):

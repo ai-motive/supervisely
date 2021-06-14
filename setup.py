@@ -14,7 +14,7 @@ def read(fname):
 # already have PyTorch installed.
 setup(
     name="supervisely",
-    version="6.1.73",
+    version="6.1.74",
     packages=find_packages(include=['supervisely_lib', 'supervisely_lib.*']),
     description="Supervisely Python SDK.",
     long_description=read("README.md"),
