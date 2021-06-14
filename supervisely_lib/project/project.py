@@ -59,8 +59,9 @@ class Dataset(KeyObject):
 
         project_dir, ds_name = os.path.split(directory.rstrip('/'))
         if ds_name in block_directories:
-            return None
+            self._valid_dataset = False
         else:
+            self._valid_dataset = True
             self._project_dir = project_dir
             self._name = ds_name
 
@@ -456,7 +457,8 @@ class Project:
         possible_datasets = sorted(get_subdirs(self.directory))
         for ds_name in possible_datasets:
             current_dataset = self.dataset_class(os.path.join(self.directory, ds_name), OpenMode.READ, self.block_directories)
-            self._datasets = self._datasets.add(current_dataset)
+            if current_dataset._valid_dataset:
+                self._datasets = self._datasets.add(current_dataset)
 
         if self.total_items == 0:
             raise RuntimeError('Project is empty')
@@ -750,3 +752,11 @@ def _download_dataset(api: Api, dataset, dataset_id, cache=None, progress_cb=Non
         if cache:
             img_hashes = [img_info.hash for img_info in images_to_download]
             cache.write_objects(img_paths, img_hashes)
+
+if __name__ == '__main__':
+    block_directories = [
+        '0_9999', '10000_19999', '20000_29999', '60000_69999', '120000_129999', '170000_179999', 'total'
+    ]
+    project_path = '/HDD/Datasets/mathflat_problems/Output_supervisely_V3.1'
+    project = Project(directory=project_path, mode=OpenMode.READ,
+                      block_directories=block_directories)
