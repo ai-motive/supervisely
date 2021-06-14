@@ -59,7 +59,7 @@ class Dataset(KeyObject):
 
         project_dir, ds_name = os.path.split(directory.rstrip('/'))
         if ds_name in block_directories:
-            return
+            return None
         else:
             self._project_dir = project_dir
             self._name = ds_name
