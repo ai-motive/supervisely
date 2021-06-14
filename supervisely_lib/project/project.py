@@ -46,7 +46,7 @@ class Dataset(KeyObject):
     item_dir_name = 'img'
     annotation_class = Annotation
 
-    def __init__(self, directory: str, mode: OpenMode, block_directories: list):
+    def __init__(self, directory: str, mode: OpenMode, block_directories: list=[]):
         '''
         :param directory: path to the directory where the data set will be saved or where it will be loaded from
         :param mode: OpenMode class object which determines in what mode to work with the dataset
