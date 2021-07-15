@@ -1,0 +1,46 @@
+{
+    "classes": [
+        {
+            "title": "table",
+            "shape": "rectangle",
+            "color": "#00FF00",
+            "geometry_config": {},
+            "id": 2945020,
+            "hotkey": "T"
+        },
+        {
+            "title": "graph",
+            "shape": "rectangle",
+            "color": "#417505",
+            "geometry_config": {},
+            "id": 2945021,
+            "hotkey": "G"
+        },
+        {
+            "title": "textline",
+            "shape": "rectangle",
+            "color": "#0000FF",
+            "geometry_config": {},
+            "id": 2945022,
+            "hotkey": "L"
+        },
+        {
+            "title": "math",
+            "shape": "rectangle",
+            "color": "#FF1493",
+            "geometry_config": {},
+            "id": 2945023,
+            "hotkey": "M"
+        },
+        {
+            "title": "ko",
+            "shape": "rectangle",
+            "color": "#F5A623",
+            "geometry_config": {},
+            "id": 2945024,
+            "hotkey": "K"
+        }
+    ],
+    "tags": [],
+    "projectType": "images"
+}
