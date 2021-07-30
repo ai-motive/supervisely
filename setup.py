@@ -17,8 +17,8 @@ setup(
     version="6.1.82",
     packages=find_packages(include=['supervisely_lib', 'supervisely_lib.*']),
     description="Supervisely Python SDK.",
-    long_description=read("README.md"),
-    long_description_content_type='text/markdown',
+    # long_description=read("README.md"),
+    # long_description_content_type='text/markdown',
     url="https://github.com/supervisely/supervisely",
     install_requires=[
         "flask-restful>=0.3.7",
