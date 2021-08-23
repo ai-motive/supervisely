@@ -1,5 +1,8 @@
 # coding: utf-8
 
+# custom
+from supervisely_lib.custom import general
+
 from supervisely_lib.sly_logger import logger, ServiceType, EventType, add_logger_handler, \
     add_default_logging_into_file, get_task_logger, change_formatters_default_values, LOGGING_LEVELS
 
