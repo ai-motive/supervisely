@@ -14,7 +14,7 @@ def read(fname):
 # already have PyTorch installed.
 setup(
     name="supervisely",
-    version="6.1.85",
+    version="6.1.86",
     packages=find_packages(include=['supervisely_lib', 'supervisely_lib.*']),
     description="Supervisely Python SDK.",
     # long_description=read("README.md"),
@@ -49,7 +49,7 @@ setup(
         "docker>=4.4.1",
         "psutil>=5.4.5",
         "imgaug==0.4.0",
-        "imagecorruptions==1.1.2"
+        "imagecorruptions>=1.1.2"
         "git+ssh://git@github.com/mathFLAT/python_utils.git"
     ],
     include_package_data=True
