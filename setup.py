@@ -50,7 +50,7 @@ setup(
         "psutil>=5.4.5",
         # "imgaug==0.4.0",
         # "imagecorruptions==1.1.2"
-        "git+ssh://git@github.com/mathFLAT/python_utils.git"
+        "python_utils @ git+ssh://git@github.com/mathFLAT/python_utils.git"
     ],
     include_package_data=True
 )
