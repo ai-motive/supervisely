@@ -118,8 +118,7 @@ class Dataset(KeyObject):
         if not dir_exists(self.item_dir):
             raise FileNotFoundError('Item directory not found: {!r}'.format(self.item_dir))
         if not dir_exists(self.ann_dir):
-            # raise FileNotFoundError('Annotation directory not found: {!r}'.format(self.ann_dir))
-            print('Annotation directory not found: {!r}'.format(self.ann_dir))
+            raise FileNotFoundError('Annotation directory not found: {!r}'.format(self.ann_dir))
 
         raw_ann_paths = list_files(self.ann_dir, [ANN_EXT])
         img_paths = list_files(self.item_dir, filter_fn=self._has_valid_ext)
